@@ -1,23 +1,15 @@
-package com.google.api.services.storage;
+package org.example;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.googleapis.media.MediaHttpUploader;
 import com.google.api.client.http.FileContent;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.services.storage.Storage;
 import com.google.api.services.storage.Storage.Objects.Insert;
 import com.google.api.services.storage.model.StorageObject;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,18 +36,11 @@ public class Main {
     }
     String filepath = resource.getFile();
     File file = new File(filepath);
+
     // perform upload
     logger.setLevel(Level.FINE);
     StorageObject object = new StorageObject();
     object.setName("name1");
-
-    // resumable upload
-    // Insert request = supportService.objects()
-    //     .insert("special-bucket-1",
-    //         object,
-    //         new FileContent("text/plain", file));
-    // request.setUploadType("media");
-    // System.out.println(request.execute());
 
     // direct upload
     System.out.println("**************** direct upload ****************");
