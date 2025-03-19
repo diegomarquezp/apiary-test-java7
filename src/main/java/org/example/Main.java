@@ -36,18 +36,11 @@ public class Main {
     }
     String filepath = resource.getFile();
     File file = new File(filepath);
+
     // perform upload
     logger.setLevel(Level.FINE);
     StorageObject object = new StorageObject();
     object.setName("name1");
-
-    // resumable upload
-    // Insert request = supportService.objects()
-    //     .insert("special-bucket-1",
-    //         object,
-    //         new FileContent("text/plain", file));
-    // request.setUploadType("media");
-    // System.out.println(request.execute());
 
     // direct upload
     System.out.println("**************** direct upload ****************");
