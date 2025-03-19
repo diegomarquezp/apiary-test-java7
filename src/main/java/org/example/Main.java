@@ -7,8 +7,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.storage.Storage;
 import com.google.api.services.storage.Storage.Objects.Insert;
 import com.google.api.services.storage.model.StorageObject;
-import com.google.auth.http.HttpCredentialsAdapter;
-import com.google.auth.oauth2.GoogleCredentials;
+import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import java.io.File;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
@@ -20,7 +19,7 @@ public class Main {
     Storage supportService = new Storage.Builder(
         GoogleNetHttpTransport.newTrustedTransport(),
         GsonFactory.getDefaultInstance(),
-        new HttpCredentialsAdapter(GoogleCredentials.getApplicationDefault()))
+        GoogleCredential.getApplicationDefault())
         .setApplicationName("Cloud Support API")
         .build();
 
